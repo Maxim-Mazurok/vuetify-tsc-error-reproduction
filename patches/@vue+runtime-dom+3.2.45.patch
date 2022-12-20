@@ -1,0 +1,17 @@
+TODO: remove this once https://github.com/vuetifyjs/vuetify/issues/16190 is resolved.
+Essentially this patch replicates behaviour of `vue-tsc` when `vueCompilerOptions.strictTemplates = false` for `tsc` so that we don't get errors in VS Code:
+`tsScriptText = tsScriptText.replace('type ReservedProps = {', 'type ReservedProps = { [name: string]: any');` from `node_modules/@volar/vue-language-core/out/languageModule.js`
+
+diff --git a/node_modules/@vue/runtime-dom/dist/runtime-dom.d.ts b/node_modules/@vue/runtime-dom/dist/runtime-dom.d.ts
+index 43b2e3d..e7486f3 100644
+--- a/node_modules/@vue/runtime-dom/dist/runtime-dom.d.ts
++++ b/node_modules/@vue/runtime-dom/dist/runtime-dom.d.ts
+@@ -1480,7 +1480,7 @@ type EventHandlers<E> = {
+ // named imports.
+ import * as RuntimeCore from '@vue/runtime-core'
+ 
+-type ReservedProps = {
++type ReservedProps = { [name: string]: any
+   key?: string | number | symbol
+   ref?: RuntimeCore.VNodeRef
+   ref_for?: boolean

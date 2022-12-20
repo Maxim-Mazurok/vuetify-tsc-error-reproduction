@@ -17,6 +17,10 @@
     "paths": {
       "@/*": ["src/*"]
     },
+    "noErrorTruncation": false
+  },
+  "vueCompilerOptions": {
+    "strictTemplates": true // NOTE: this is effectively `false`, because we're applying the same path as it would in case of `true` do in `patches/@vue+runtime-dom+3.2.45.patch`, see that patch file for detailed description
   },
   "include": [
     "src/**/*.ts",
