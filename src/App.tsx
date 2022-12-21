@@ -23,8 +23,10 @@ import { VBtn, VBtnToggle } from "vuetify/components";
 // });
 
 import { ButtonHTMLAttributes, DefineComponent, defineComponent } from "vue";
+import { WBtn, WBtn2 } from "./vuetify";
+// import { GroupProvide } from 'vuetify/lib/components/index';
 
-const ButtonWrapper = defineComponent({
+export const ButtonWrapper = defineComponent({
   name: "ButtonWrapper",
   render() {
     return <VBtn {...this.$attrs} v-slots={this.$slots} tag="button" />;
@@ -38,8 +40,15 @@ export default defineComponent({
     return (
       <div>
         <h1>App</h1>
-        <ButtonWrapper tag="a">testing 1</ButtonWrapper>
-        <ButtonWrapper variant="flat">testing 2</ButtonWrapper>
+        <ButtonWrapper tag="a" variant="flat" onClick={() => alert("1")}>
+          testing 1
+        </ButtonWrapper>
+        <WBtn tag="a" variant="flat" onClick={() => alert("2")}>
+          testing 2
+        </WBtn>
+        <WBtn2 tag="a" variant="flat" onClick={() => alert("3")}>
+          testing 3
+        </WBtn2>
       </div>
     );
   },

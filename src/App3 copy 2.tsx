@@ -7,7 +7,7 @@ import { VBtn } from "vuetify/components";
 const WWBtn
 // assigning it to a VBtn (the original Vuetify component), so it'll behave exactly the same in runtime
 = VBtn
-// now we're saying "forget all the typing it had, we will specify them manually"
+// we're saying "forget all the typing it had, we will specify them manually"
 as
 // this will be a huge interface from the original VBtn
 typeof VBtn
@@ -33,7 +33,7 @@ export default defineComponent({
         {/* Furthermore, it knows that this function accepts payload of type MouseEvent even though we didn't specify that in the handler explicitly */}
 
 
-        <WWBtn variant="flat" onClick={() => alert("clicked WWBtn")}></WWBtn>
+        <WWBtn variant="flat" onClick={alert("clicked WWBtn")}></WWBtn>
       </div>
     );
   },
